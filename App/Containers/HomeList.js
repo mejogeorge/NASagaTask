@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { FlatList, TextInput } from 'react-native'
 import { connect } from 'react-redux'
 import Card from '../Components/Card'
+import LoaderView from '../Components/LoaderView'
 
 // For empty lists
 // import AlertMessage from '../Components/AlertMessage'
@@ -10,12 +11,21 @@ import Card from '../Components/Card'
 import styles from './Styles/HomeListStyle'
 import { View } from 'react-native-animatable'
 class HomeList extends Component {
-  //
   renderItems = (data) => <Card
     name={data.item.title}
     age={data.item.description}
     height='172'
   />
+  renderFooterView = () => {
+    // if (this.props.reducer.isOnNextCall) {
+    //   return (
+    //     <LoaderView />
+    //   )
+    // } else {
+    //   return null
+    // }
+    return (<LoaderView />)
+  }
 
   render () {
     const dataObjects = [
@@ -41,6 +51,7 @@ class HomeList extends Component {
       { title: '20th Title', description: '20th Description' },
       { title: 'BLACKJACK!', description: 'BLACKJACK! Description' }
     ]
+
     return (
       <View style={styles.container}>
         <View style={styles.searchBar}>
@@ -51,6 +62,7 @@ class HomeList extends Component {
           <FlatList
             data={dataObjects}
             renderItem={this.renderItems}
+            ListFooterComponent={this.renderFooterView}
           />
         </View>
       </View>
