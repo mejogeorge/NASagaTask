@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { FlatList, TextInput } from 'react-native'
+import { FlatList } from 'react-native'
 import { connect } from 'react-redux'
 import Card from '../Components/Card'
 import LoaderView from '../Components/LoaderView'
-
+import Actions from '../Redux/HomeRedux'
 // For empty lists
 // import AlertMessage from '../Components/AlertMessage'
 
@@ -11,56 +11,45 @@ import LoaderView from '../Components/LoaderView'
 import styles from './Styles/HomeListStyle'
 import { View } from 'react-native-animatable'
 class HomeList extends Component {
-  renderItems = (data) => <Card
-    name={data.item.title}
-    age={data.item.description}
-    height='172'
-  />
+  componentDidMount () {
+    this.props.fetchDetails()
+  }
+
+  renderItems = data => {
+    // console.tron.log('redner items', data.item.name)
+    return (
+      <Card
+        name={data.item.name}
+        age={data.item.age}
+        height={data.item.height}
+      />
+    )
+  }
   renderFooterView = () => {
-    // if (this.props.reducer.isOnNextCall) {
+    // if (this.props.home.isOnNextCall) {
     //   return (
     //     <LoaderView />
     //   )
     // } else {
     //   return null
     // }
-    return (<LoaderView />)
+    return <LoaderView />
   }
 
   render () {
-    const dataObjects = [
-      { title: 'First Title', description: 'First Description' },
-      { title: 'Second Title', description: 'Second Description' },
-      { title: 'Third Title', description: 'Third Description' },
-      { title: 'Fourth Title', description: 'Fourth Description' },
-      { title: 'Fifth Title', description: 'Fifth Description' },
-      { title: 'Sixth Title', description: 'Sixth Description' },
-      { title: 'Seventh Title', description: 'Seventh Description' },
-      { title: 'Eighth Title', description: 'Eighth Description' },
-      { title: 'Ninth Title', description: 'Ninth Description' },
-      { title: 'Tenth Title', description: 'Tenth Description' },
-      { title: 'Eleventh Title', description: 'Eleventh Description' },
-      { title: '12th Title', description: '12th Description' },
-      { title: '13th Title', description: '13th Description' },
-      { title: '14th Title', description: '14th Description' },
-      { title: '15th Title', description: '15th Description' },
-      { title: '16th Title', description: '16th Description' },
-      { title: '17th Title', description: '17th Description' },
-      { title: '18th Title', description: '18th Description' },
-      { title: '19th Title', description: '19th Description' },
-      { title: '20th Title', description: '20th Description' },
-      { title: 'BLACKJACK!', description: 'BLACKJACK! Description' }
-    ]
-
+    // if (store.isLoading) {
+    //   return (
+    //     <LoaderView />
+    //   )
+    // } else {}
     return (
       <View style={styles.container}>
         <View style={styles.searchBar}>
-          <TextInput
-            placeholder='type to search' />
+          {/* <TextInput placeholder={this.props.page.toString} /> */}
         </View>
         <View style={styles.listView}>
           <FlatList
-            data={dataObjects}
+            data={this.props.resultData}
             renderItem={this.renderItems}
             ListFooterComponent={this.renderFooterView}
           />
@@ -70,15 +59,20 @@ class HomeList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     // ...redux state to props here
+    page: state.home.pageNumber || '',
+    resultData: state.home.dataSource,
+    isOnNextCall: state.home.isOnNextCall
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  fetchDetails: () => dispatch(Actions.fetchResultsRequest())
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeList)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeList)
