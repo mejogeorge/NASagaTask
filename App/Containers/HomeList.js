@@ -10,6 +10,9 @@ import Actions from '../Redux/HomeRedux'
 // Styles
 import styles from './Styles/HomeListStyle'
 import { View } from 'react-native-animatable'
+
+let timer = null
+
 class HomeList extends Component {
   componentDidMount () {
     this.props.fetchDetails('initial')
@@ -27,23 +30,32 @@ class HomeList extends Component {
   }
   renderFooterView = () => {
     if (this.props.nextUrl) {
-      return (
-        <LoaderView />
-      )
+      return <LoaderView />
     } else {
       return null
     }
   }
 
+  onSearch = text => {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      console.tron.log('debouncer', text)
+      this.props.fetchDetails('search', text)
+    }, 500)
+  }
+
   render () {
-    if (!this.props.nextUrl && this.props.isLoading) {
-      return <LoaderView />
-    } else {
-      return (
-        <View style={styles.container}>
-          <View style={styles.searchBar}>
-            <TextInput placeholder={this.props.nextUrl} />
-          </View>
+    return (
+      <View style={styles.container}>
+        <View style={styles.searchBar}>
+          <TextInput
+            placeholder={this.props.nextUrl}
+            onChangeText={this.onSearch}
+          />
+        </View>
+        {!this.props.nextUrl && this.props.isLoading ? (
+          <LoaderView />
+        ) : (
           <View style={styles.listView}>
             <FlatList
               data={this.props.resultData}
@@ -55,9 +67,9 @@ class HomeList extends Component {
               ListFooterComponent={this.renderFooterView}
             />
           </View>
-        </View>
-      )
-    }
+        )}
+      </View>
+    )
   }
 }
 const mapStateToProps = state => {
@@ -72,11 +84,21 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = (dispatch, state) => ({
-  fetchDetails: (nextUrl) => {
-    if (nextUrl === 'initial') {
-      dispatch(Actions.fetchResultsRequest())
+  fetchDetails: (nextUrl, query) => {
+    if (nextUrl === 'search' && !query) {
+      nextUrl = 'initial'
+    }
+    if (nextUrl === 'search') {
+      dispatch(
+        Actions.fetchResultsRequest(
+          'https://swapi.co/api/people/?search=' + query,
+          true
+        )
+      )
+    } else if (nextUrl === 'initial') {
+      dispatch(Actions.fetchResultsRequest('', true))
     } else if (nextUrl) {
-      console.tron.log('nextUrl >> ', nextUrl)
+      console.tron.log('nextUrl', nextUrl)
       dispatch(Actions.fetchResultsRequest(nextUrl))
     }
   }
