@@ -14,7 +14,7 @@ import { HomeTypes } from '../Redux/HomeRedux'
 
 import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
-import { getPeopleResults } from './HomeSaga'
+import { getPeopleResults, getSearcheResults } from './HomeSaga'
 
 /* ------------- API ------------- */
 
@@ -27,7 +27,7 @@ export default function * root () {
   yield all([
     // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
-
     takeLatest(HomeTypes.FETCH_RESULTS_REQUEST, getPeopleResults)
+    // takeLatest(HomeTypes.FETCH_SEARCH_REQUEST, getSearcheResults)
   ])
 }
