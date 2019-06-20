@@ -1,35 +1,38 @@
 import { put } from 'redux-saga/effects'
 // import { path } from 'ramda'
 import HomeActions from '../Redux/HomeRedux'
-const initialURL = 'https://swapi.co/api/people/?page=1'
-const searchURL = 'https://swapi.co/api/people/?search='
+let initialURL = 'https://swapi.co/api/people/?page=1'
+let searchURL = 'https://swapi.co/api/people/?search='
+let searchNextUrl = null
+
 export function * getPeopleResults (action) {
   // make the call to the api
-  console.tron.log('action.url', action)
-  const result = yield fetch(action.url || initialURL)
+  const result = yield fetch(initialURL)
     .then(response => response.json())
     .catch(error => ({
       error
     }))
-  console.tron.log('DATA-:', result)
   if (result.error) {
     return yield put(HomeActions.fetchResultsFailure())
   } else {
-    yield put(HomeActions.fetchResultsSuccess(result))
+    initialURL = result.next
+    yield put(HomeActions.fetchResultsSuccess(result.results))
   }
 }
 
 export function * getSearcheResults (action) {
-  // make the call to the api
-  const result = yield fetch(action.url || searchURL)
+  let url = searchURL + action.text
+  console.tron.log('serach url', url)
+  const result = yield fetch(searchNextUrl || url)
     .then(response => response.json())
     .catch(error => ({
       error
     }))
-  console.tron.log('DATA-ani:', result)
+  console.tron.log('DATA-sechar:', result)
   if (result.error) {
-    return yield put(HomeActions.fetchResultsFailure())
+    return yield put(HomeActions.fetchSearchFailure())
   } else {
-    yield put(HomeActions.fetchResultsSuccess(result.results))
+    searchNextUrl = result.next
+    yield put(HomeActions.fetchSearchSuccess(result.results))
   }
 }

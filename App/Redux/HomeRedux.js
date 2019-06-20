@@ -7,9 +7,10 @@ const { Types, Creators } = createActions({
   fetchResultsRequest: ['url', 'clear'],
   fetchResultsSuccess: ['data'],
   fetchResultsFailure: ['error'],
-  fetchSearchRequest: ['url'],
+  fetchSearchRequest: ['text'],
   fetchSearchSuccess: ['data'],
-  fetchSearchFailure: ['error']
+  fetchSearchFailure: ['error'],
+  storePeopleId: ['id']
 })
 
 export const HomeTypes = Types
@@ -23,38 +24,48 @@ export const INITIAL_STATE = Immutable({
   isOnNextCall: false,
   refreshingIndicator: false,
   dataSource: [],
+  searchDataSource: [],
   nextUrl: '',
-  isSearchRequest: false
+  isSearchRequest: false,
+  peopleId: null
 })
 
 /* ------------- Reducers ------------- */
-export const request = (state, { clear }) => {
-  if (clear) {
-    return state.merge({ isLoading: true, dataSource: [], nextUrl: '' })
-  }
-  return state.merge({ isLoading: true })
+// export const request = (state, { clear }) => {
+//   if (clear) {
+//     return state.merge({ isLoading: true, dataSource: [], nextUrl: '' })
+//   }
+//   return state.merge({ isLoading: true })
+// }
+
+export const request = state => {
+  return state.merge({ isLoading: true, isSearchRequest: false })
 }
 
 export const success = (state, { data }) => {
-  const { results: dataSource, next: nextUrl } = data
   return state.merge({
     isLoading: false,
-    dataSource: [...state.dataSource, ...dataSource],
-    nextUrl
+    dataSource: state.dataSource.concat(data)
   })
 }
 
 export const failed = state => {
-  return state.merge({ isLoading: false })
+  return state.merge({ isLoading: false, isSearchRequest: true })
 }
 
-export const searchRequest = state => state.merge({ isLoading: true })
+export const searchRequest = state =>
+  state.merge({ isLoading: true, isSearchRequest: true })
 
 export const searchSuccess = (state, { data }) => {
-  return state.merge({ isLoading: false, dataSource: data })
+  return state.merge({
+    isLoading: false,
+    searchDataSource: state.searchDataSource.concat(data)
+  })
 }
 
 export const searchFailure = state => state.merge({ isLoading: false })
+
+export const storePeopleId = (state, id) => state.merge({ peopleId: id })
 
 /* ------------- Hookup Reducers To Types ------------- */
 
@@ -64,5 +75,6 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.FETCH_RESULTS_FAILURE]: failed,
   [Types.FETCH_SEARCH_REQUEST]: searchRequest,
   [Types.FETCH_SEARCH_SUCCESS]: searchSuccess,
-  [Types.FETCH_SEARCH_FAILURE]: searchFailure
+  [Types.FETCH_SEARCH_FAILURE]: searchFailure,
+  [Types.STORE_PEOPLE_ID]: storePeopleId
 })

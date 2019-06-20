@@ -27,7 +27,7 @@ export default function * root () {
   yield all([
     // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
-    takeLatest(HomeTypes.FETCH_RESULTS_REQUEST, getPeopleResults)
-    // takeLatest(HomeTypes.FETCH_SEARCH_REQUEST, getSearcheResults)
+    takeLatest(HomeTypes.FETCH_RESULTS_REQUEST, getPeopleResults),
+    takeLatest(HomeTypes.FETCH_SEARCH_REQUEST, getSearcheResults)
   ])
 }
