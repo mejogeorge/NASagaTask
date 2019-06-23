@@ -3,20 +3,26 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // backgroundColor: 'white',
-    // alignItems: 'center', // 'rgb(22, 29, 50)'
-    // paddingTop: 49,
-    // paddingBottom: 30,
-    // paddingLeft: 50,
-    // paddingRight: 50,
-    // borderRadius: 10,
-    // marginBottom: 65
-
     flex: 1,
     backgroundColor: 'rgb(22, 29, 50)',
+    alignItems: 'center',
+    paddingTop: 65,
+    paddingLeft: 12,
+    paddingRight: 12
+  },
+  secondaryView: {
+    flex: 1,
+    backgroundColor: 'white',
     alignItems: 'center', // 'rgb(22, 29, 50)'
-    paddingTop: 65
+    paddingTop: 49,
+    paddingBottom: 30,
+    paddingLeft: 50,
+    paddingRight: 50,
+    borderRadius: 10,
+    marginBottom: 65
+  },
+  flatList: {
+    flex: 1
   },
   image: {
     flex: 1,
@@ -51,17 +57,6 @@ export const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: 20
-  },
-  secondaryView: {
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center', // 'rgb(22, 29, 50)'
-    paddingTop: 49,
-    paddingBottom: 30,
-    paddingLeft: 50,
-    paddingRight: 50,
-    borderRadius: 10,
-    marginBottom: 65
   }
 })
 // 22,29,50

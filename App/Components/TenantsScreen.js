@@ -21,7 +21,10 @@ export default class TenantsScreen extends Component {
           <Text style={styles.secondaryText}>
             Decide by seeing what previous owners are saying about them!
           </Text>
-          <TouchableOpacity style={styles.roundButton}>
+          <TouchableOpacity
+            style={styles.roundButton}
+            onPress={this.props.onClick}
+          >
             <Text style={styles.buttonText}>→</Text>
           </TouchableOpacity>
         </View>
