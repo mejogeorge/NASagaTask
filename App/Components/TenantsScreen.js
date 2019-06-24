@@ -14,7 +14,7 @@ export default class TenantsScreen extends Component {
   next = () => {
     this.scrollToIndex()
   }
-  renderItems = () => <LandingViewSwipeComponent />
+  renderItems = item => <LandingViewSwipeComponent data={item.item} />
 
   scrollToIndex = () => {
     console.tron.log('with ====', this.width)
@@ -43,7 +43,6 @@ export default class TenantsScreen extends Component {
   }
   setWidth = event => {
     console.tron.log('flat width=====', event, event.nativeEvent.layout.width)
-
     this.width = event.nativeEvent.layout.width
   }
 
@@ -59,7 +58,25 @@ export default class TenantsScreen extends Component {
       />
     )
   }
-
+  handleViewableItems = ({ viewableItems }) => {
+    // const id = viewableItems[0].item.id
+    // const { id } = item
+    let id = null
+    if (
+      viewableItems &&
+      viewableItems[0] &&
+      viewableItems[0].item &&
+      viewableItems[0].item.id
+    ) {
+      id = viewableItems[0].item.id
+    }
+    if (id && (id - 1 !== this.state.currentIndex)) {
+      this.setState({
+        currentIndex: id - 1
+      })
+    }
+    console.tron.log('viewabilityConfig====', id, this.state.currentIndex)
+  }
   render () {
     return (
       <View style={styles.secondaryView}>
@@ -69,12 +86,17 @@ export default class TenantsScreen extends Component {
             this.listRef = ref
           }}
           data={this.props.dataSource}
-          renderItem={this.renderItems}
+          renderItem={item => this.renderItems(item)}
           horizontal
           showsHorizontalScrollIndicator={false}
           getItemLayout={this.getItemLayout}
           pagingEnabled
           style={styles.flatList}
+          onViewableItemsChanged={this.handleViewableItems}
+          viewabilityConfig={{
+            itemVisiblePercentThreshold: 70
+          }}
+
           // initialScrollIndex={width}
           // initialNumToRender={3}
         />

@@ -7,10 +7,11 @@ export const styles = StyleSheet.create({
   },
   flatList: {
     flex: 1
+    // width: getDimension(20)
   },
   image: {
-    width: 251, // how to give exact width of  flatLIsts
-    height: 168,
+    width: 251, // getDimension(238), // how to give exact width of  flatLIsts
+    height: 168, // getDimension(168), //
     backgroundColor: 'grey'
     // marginTop: 90
   },

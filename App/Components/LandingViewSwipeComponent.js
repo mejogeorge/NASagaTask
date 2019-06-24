@@ -16,9 +16,9 @@ export default class TenantsScreen extends Component {
           }}
           style={styles.image}
         />
-        <Text style={styles.primaryText}>Need good tenants?</Text>
+        <Text style={styles.primaryText}>{this.props.data.primaryText}</Text>
         <Text style={styles.secondaryText}>
-          Decide by seeing what previous owners are saying about them!
+          {this.props.data.secondaryText}!
         </Text>
       </View>
     )

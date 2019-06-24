@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     paddingTop: 49,
     paddingBottom: 30,
     borderRadius: 10,
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
     // height: 510
     // maxHeight: 510
 
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
     backgroundColor: 'rgb(53, 86, 202)',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 24,
+    borderRadius: 24
     // marginTop: 16,
   },
   buttonText: {
@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
     fontSize: 20
   },
   loginOrSignUpButton: {
-    minWidth: 100,
+    minWidth: 200,
     minHeight: 50,
     marginTop: 39,
     marginBottom: 24,
