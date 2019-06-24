@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Image } from 'react-native'
-import { styles } from './Styles/TenantsScereenStyles'
+import { styles } from './Styles/LandingViewSwipeComponentStyle'
 
 export default class TenantsScreen extends Component {
   static navigationOptions = {
@@ -8,7 +8,7 @@ export default class TenantsScreen extends Component {
   }
   render () {
     return (
-      <View style={styles.secondaryView}>
+      <View style={styles.container}>
         <Image
           source={{
             uri:

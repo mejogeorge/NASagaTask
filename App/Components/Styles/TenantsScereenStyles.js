@@ -8,43 +8,23 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 65,
     paddingLeft: 12,
-    paddingRight: 12
+    paddingRight: 12,
+    paddingBottom: 65
   },
   secondaryView: {
-    flex: 1,
     backgroundColor: 'white',
     alignItems: 'center', // 'rgb(22, 29, 50)'
     paddingTop: 49,
     paddingBottom: 30,
-    paddingLeft: 50,
-    paddingRight: 50,
     borderRadius: 10,
-    marginBottom: 65
+    justifyContent: 'space-between',
+    // height: 510
+    // maxHeight: 510
+
   },
   flatList: {
-    flex: 1
-  },
-  image: {
     flex: 1,
-    width: 238,
-    height: 168,
-    backgroundColor: 'grey'
-  },
-  primaryText: {
-    fontSize: 16,
-    color: 'rgb(98, 98, 98)',
-    marginTop: 71,
-    marginBottom: 4,
-    width: 237,
-    textAlign: 'center'
-  },
-  secondaryText: {
-    fontSize: 16,
-    color: 'rgb(28, 28, 28)',
-    width: 237,
-    height: 52,
-    textAlign: 'center',
-    marginBottom: 140
+    maxHeight: 400
   },
   roundButton: {
     height: 48,
@@ -52,11 +32,49 @@ export const styles = StyleSheet.create({
     backgroundColor: 'rgb(53, 86, 202)',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 48 / 2
+    borderRadius: 24,
+    // marginTop: 16,
   },
   buttonText: {
     color: 'white',
     fontSize: 20
+  },
+  loginOrSignUpButton: {
+    minWidth: 100,
+    minHeight: 50,
+    marginTop: 39,
+    marginBottom: 24,
+    paddingLeft: 20,
+    paddingRight: 20,
+    borderRadius: 10,
+    marginLeft: 44,
+    marginRight: 44,
+    backgroundColor: 'rgb(53, 86, 202)',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  loginButtonText: {
+    textAlign: 'center',
+    fontSize: 14,
+    color: 'white'
+  },
+  dots: {
+    height: 10,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 38,
+    marginBottom: 16
+
+  },
+  dot: {
+    width: 8,
+    height: 8,
+    margin: 2,
+    borderRadius: 4,
+    backgroundColor: '#d8d8d8'
+  },
+  dotActive: {
+    backgroundColor: '#4265ea'
   }
 })
-// 22,29,50
+// 22,29,50ß
