@@ -1,5 +1,7 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 // import { borderRadius } from 'polished'
+const wholeWidth = Dimensions.get('window').width
+const wholeHeight = Dimensions.get('window').height
 
 export const styles = StyleSheet.create({
   container: {
@@ -15,12 +17,11 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center', // 'rgb(22, 29, 50)'
     paddingTop: 49,
-    paddingBottom: 30,
+    paddingBottom: 24,
     borderRadius: 10,
     justifyContent: 'space-between'
     // height: 510
     // maxHeight: 510
-
   },
   flatList: {
     flex: 1,
@@ -32,23 +33,19 @@ export const styles = StyleSheet.create({
     backgroundColor: 'rgb(53, 86, 202)',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 24
-    // marginTop: 16,
+    borderRadius: 24,
+    marginBottom: 6
   },
   buttonText: {
     color: 'white',
     fontSize: 20
   },
   loginOrSignUpButton: {
-    minWidth: 200,
-    minHeight: 50,
-    marginTop: 39,
-    marginBottom: 24,
+    flex: 1,
     paddingLeft: 20,
     paddingRight: 20,
     borderRadius: 10,
-    marginLeft: 44,
-    marginRight: 44,
+    width: '100%',
     backgroundColor: 'rgb(53, 86, 202)',
     justifyContent: 'center',
     alignItems: 'center'
@@ -58,13 +55,22 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     color: 'white'
   },
+  ButtonsView: {
+    flex: 1,
+    width: wholeWidth - 112,
+    marginTop: 39,
+    maxHeight: (52 / 640) * wholeHeight,
+    marginBottom: 24,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   dots: {
     height: 10,
     flexDirection: 'row',
     justifyContent: 'center',
     marginTop: 38,
     marginBottom: 16
-
   },
   dot: {
     width: 8,

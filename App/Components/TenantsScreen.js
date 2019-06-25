@@ -70,7 +70,7 @@ export default class TenantsScreen extends Component {
     ) {
       id = viewableItems[0].item.id
     }
-    if (id && (id - 1 !== this.state.currentIndex)) {
+    if (id && id - 1 !== this.state.currentIndex) {
       this.setState({
         currentIndex: id - 1
       })
@@ -106,18 +106,20 @@ export default class TenantsScreen extends Component {
               <this.Dot style={styles.dot} index={index} />
             ))}
           </View>
-          {this.state.currentIndex === this.props.dataSource.length - 1 ? (
-            <TouchableOpacity
-              style={styles.loginOrSignUpButton}
-              onPress={() => this.props.navigation.navigate('LandingView')}
-            >
-              <Text style={styles.loginButtonText}>LOGIN or SIGNUP</Text>
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity style={styles.roundButton} onPress={this.next}>
-              <Text style={styles.buttonText}>→</Text>
-            </TouchableOpacity>
-          )}
+          <View style={styles.ButtonsView}>
+            {this.state.currentIndex === this.props.dataSource.length - 1 ? (
+              <TouchableOpacity
+                style={styles.loginOrSignUpButton}
+                onPress={() => this.props.navigation.navigate('LandingView')}
+              >
+                <Text style={styles.loginButtonText}>LOGIN or SIGNUP</Text>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity style={styles.roundButton} onPress={this.next}>
+                <Text style={styles.buttonText}>→</Text>
+              </TouchableOpacity>
+            )}
+          </View>
         </View>
       </View>
     )
