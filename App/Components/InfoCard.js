@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, FlatList } from 'react-native'
-import { styles } from './Styles/TenantsScereenStyles'
+import { styles } from './Styles/InfoCardStyles'
 import LandingViewSwipeComponent from './LandingViewSwipeComponent'
-export default class TenantsScreen extends Component {
+export default class InfoCard extends Component {
   state = {
     currentIndex: 0
   }
@@ -110,7 +110,13 @@ export default class TenantsScreen extends Component {
             {this.state.currentIndex === this.props.dataSource.length - 1 ? (
               <TouchableOpacity
                 style={styles.loginOrSignUpButton}
-                onPress={() => this.props.navigation.navigate('LandingView')}
+                onPress={() => {
+                  console.tron.log('ASd')
+                  this.props.navigation.navigate('LandingView')
+                }}
+                onLayout={element =>
+                  console.tron.log('login button layout', element)
+                }
               >
                 <Text style={styles.loginButtonText}>LOGIN or SIGNUP</Text>
               </TouchableOpacity>

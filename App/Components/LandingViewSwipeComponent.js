@@ -4,7 +4,7 @@ import { styles } from './Styles/LandingViewSwipeComponentStyle'
 // let { width, height } = window.Dimensions
 let width = Dimensions.get('window').width
 let height = Dimensions.get('window').height
-export default class TenantsScreen extends Component {
+export default class InfoCard extends Component {
   widthPercentage = (65 * width) / 100
   heightPercentage = (27 * height) / 100
   static navigationOptions = {
