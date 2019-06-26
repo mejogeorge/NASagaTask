@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Image, Dimensions } from 'react-native'
-import { styles } from './Styles/InfoCardSwipeComponentStyle'
+import { styles } from './styles'
 
 let width = Dimensions.get('window').width
 let height = Dimensions.get('window').height

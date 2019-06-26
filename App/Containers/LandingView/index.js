@@ -18,12 +18,12 @@ export default class LandingView extends Component {
           {I18n.t('landingView.first', {country: 'Brazil'})}
         </Text>
         <SquareButton
-          name='FOR TENANTS'
+          name={I18n.t('landingView.firstButton')} // 'FOR TENANTS'
           onClick={this.__navigateTo('LandingTenants')}
         />
 
         <SquareButton
-          name='FOR OWNERS'
+          name={I18n.t('landingView.secondButton')} // 'FOR OWNERS'
           onClick={this.__navigateTo('LandingOwners')}
         />
       </View>

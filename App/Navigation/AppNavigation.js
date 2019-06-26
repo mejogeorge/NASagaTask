@@ -3,50 +3,38 @@ import HomeList from '../Containers/HomeList'
 import LaunchScreen from '../Containers/LaunchScreen'
 import styles from './Styles/NavigationStyles'
 import LandingView from '../Containers/LandingView'
-// import LandingTenants from '../Containers/LandingView/LandingTenants'
-// import LandingOwners from '../Containers/LandingView/LandingOwners'
-// import InfoCard from '@Components/InfoCard'
 import InfoCardView from '../Containers/InfoCardView'
-
-const dataSourceOwner = [
-  {
-    id: 1,
-    primaryText: 'Are you a good tenant?',
-    secondaryText:
-      'Build a good rentscore & get great houses by asking your previous owners to rate you.'
-  },
-  {
-    id: 2,
-    primaryText: 'Doubtful about your future owner?',
-    secondaryText: 'See what their past tenants are saying about them!',
-    buttonText: 'LOGIN or SIGNUP'
-    // navigateTo:
-  }
-]
+import I18n from 'react-native-i18n'
 
 const dataSourceTenant = [
   {
-    id: 1,
-    primaryText: 'Need good tenants?',
-    secondaryText:
-      'Decide by seeing what previous owners are saying about them!'
+    primaryText: I18n.t('forTenants.needGoodTenants'),
+    secondaryText: I18n.t('forTenants.needGoodTenantsSubText')
   },
   {
-    id: 2,
-    primaryText: 'Worried that your tenants might wreck your home?',
-    secondaryText: 'See your home photos along with rent every month.'
+    primaryText: I18n.t('forTenants.wreckHome'),
+    secondaryText: I18n.t('forTenants.wreckHomeAnswer')
   },
   {
-    id: 3,
-    primaryText: 'Have old tenants who kept your home clean?',
-    secondaryText: 'Help them find great houses by rating them good :)'
+    primaryText: I18n.t('forTenants.homeClean'),
+    secondaryText: I18n.t('forTenants.homeCleanAnswer')
   },
   {
-    id: 4,
-    primaryText: 'Have old tenants who damaged your home?',
-    secondaryText: 'Rate them poorly so that other owners will know.',
-    buttonText: 'LOGIN or SIGNUP'
-    // navigateTo:
+    primaryText: I18n.t('forTenants.homeDamaged'),
+    secondaryText: I18n.t('forTenants.homeDamagedAnswer'),
+    buttonText: I18n.t('loginOrSignup')
+  }
+]
+
+const dataSourceOwner = [
+  {
+    primaryText: I18n.t('forOwners.goodTenant'),
+    secondaryText: I18n.t('forOwners.goodTenantAnswer')
+  },
+  {
+    primaryText: I18n.t('forOwners.DoubtfulAboutOwner'),
+    secondaryText: I18n.t('forOwners.DoubtfulAboutOwnerAnswer'),
+    buttonText: I18n.t('loginOrSignup')
   }
 ]
 
