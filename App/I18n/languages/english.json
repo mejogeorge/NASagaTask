@@ -17,8 +17,8 @@
    "forOwners": {
       "goodTenant": "Are you a good tenant?",
       "goodTenantAnswer": "Build a good rentscore & get great houses by asking your previous owners to rate you.",
-      "DoubtfulAboutOwner": "Doubtful about your future owner?",
-      "DoubtfulAboutOwnerAnswer": "See what their past tenants are saying about them!"
+      "doubtfulAboutOwner": "Doubtful about your future owner?",
+      "doubtfulAboutOwnerAnswer": "See what their past tenants are saying about them!"
    },
    "loginOrSignup": "LOGIN or SIGNUP",
    "signIn": "Sign In",

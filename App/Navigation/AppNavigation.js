@@ -32,8 +32,8 @@ const dataSourceOwner = [
     secondaryText: I18n.t('forOwners.goodTenantAnswer')
   },
   {
-    primaryText: I18n.t('forOwners.DoubtfulAboutOwner'),
-    secondaryText: I18n.t('forOwners.DoubtfulAboutOwnerAnswer'),
+    primaryText: I18n.t('forOwners.doubtfulAboutOwner'),
+    secondaryText: I18n.t('forOwners.doubtfulAboutOwnerAnswer'),
     buttonText: I18n.t('loginOrSignup')
   }
 ]

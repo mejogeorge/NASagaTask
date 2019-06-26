@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, FlatList } from 'react-native'
+import { View, FlatList } from 'react-native'
 import { styles } from './styles'
 import InfoCardSwipeComponent from '@Components/InfoCardSwipeComponent'
-// import InfoCardSwipeComponent from '../../Components/InfoCardSwipeComponent'
+import RoundButton from '@Components/RoundButton'
+import BarButton from '@Components/BarButton'
 import _ from 'lodash'
 
 const Dot = props => {
@@ -64,9 +65,7 @@ export default class InfoCard extends Component {
     )
     console.tron.log('DS::', dataSource)
     return (
-      <View
-        style={styles.container}
-      >
+      <View style={styles.container}>
         <View style={styles.secondaryView}>
           <FlatList
             ref={ref => {
@@ -82,9 +81,6 @@ export default class InfoCard extends Component {
             viewabilityConfig={{
               itemVisiblePercentThreshold: 70
             }}
-
-            // initialScrollIndex={width}
-            // initialNumToRender={3}
           />
           <View>
             <View style={styles.dots}>
@@ -97,21 +93,14 @@ export default class InfoCard extends Component {
             </View>
             <View style={styles.buttonsView}>
               {this.state.currentIndex === dataSource.length - 1 ? (
-                <TouchableOpacity
-                  style={styles.loginOrSignUpButton}
-                  onPress={() => {
+                <BarButton
+                  buttonText='LOGIN or SIGNUP'
+                  buttonAction={() => {
                     this.props.navigation.navigate('LandingView')
                   }}
-                >
-                  <Text style={styles.loginButtonText}>LOGIN or SIGNUP</Text>
-                </TouchableOpacity>
+                />
               ) : (
-                <TouchableOpacity
-                  style={styles.roundButton}
-                  onPress={this.scrollToNext}
-                >
-                  <Text style={styles.buttonText}>→</Text>
-                </TouchableOpacity>
+                <RoundButton buttonAction={this.scrollToNext} buttonText='→' />
               )}
             </View>
           </View>

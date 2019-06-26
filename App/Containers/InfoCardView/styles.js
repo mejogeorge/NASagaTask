@@ -21,8 +21,6 @@ export const styles = StyleSheet.create({
     paddingBottom: 24,
     borderRadius: 10,
     justifyContent: 'space-between'
-    // height: 510
-    // maxHeight: 510
   },
   flatList: {
     flex: 1,
