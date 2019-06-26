@@ -11,7 +11,8 @@ export const styles = StyleSheet.create({
     paddingTop: 65,
     paddingLeft: 12,
     paddingRight: 12,
-    paddingBottom: 65
+    paddingBottom: 65,
+    justifyContent: 'center'
   },
   secondaryView: {
     backgroundColor: 'white',
@@ -55,7 +56,7 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     color: 'white'
   },
-  ButtonsView: {
+  buttonsView: {
     flex: 1,
     width: wholeWidth - 112,
     marginTop: 39,

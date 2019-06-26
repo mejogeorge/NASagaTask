@@ -1,4 +1,7 @@
 {
+   "landingView" :{
+      "first": "India’s first rental rating system"
+   },
    "signIn": "Sign In",
    "logOut": "Log Out",
    "loginLogoutExampleTitle": "Login/Logout Redux + Sagas Example",

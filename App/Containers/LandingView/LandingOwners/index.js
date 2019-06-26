@@ -8,21 +8,6 @@ export default class LandingOwners extends Component {
     header: null
   }
   render () {
-    // const dataSource = [
-    //   {
-    //     id: 1,
-    //     primaryText: 'Are you a good tenant?',
-    //     secondaryText:
-    //       'Build a good rentscore & get great houses by asking your previous owners to rate you.'
-    //   },
-    //   {
-    //     id: 2,
-    //     primaryText: 'Doubtful about your future owner?',
-    //     secondaryText: 'See what their past tenants are saying about them!',
-    //     buttonText: 'LOGIN or SIGNUP'
-    //     // navigateTo:
-    //   }
-    // ]
     console.tron.log(' navigation', this.props.navigation)
     // const { navigation } = this.props
     // const { dataSource } = navigation.getParam('dataSource')

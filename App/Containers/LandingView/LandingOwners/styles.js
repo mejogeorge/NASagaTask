@@ -10,7 +10,5 @@ export const styles = StyleSheet.create({
     paddingRight: 12,
     paddingBottom: 65,
     justifyContent: 'center'
-
   }
 })
-// 22,29,50

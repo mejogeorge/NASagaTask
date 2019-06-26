@@ -10,6 +10,12 @@ I18n.translations = {
   en: require('./languages/english.json')
 }
 
+// I18n.translations["en"] = {
+//   greeting: "Hello %{name}"
+// }
+
+// I18n.t("greeting", {name: "John Doe"});
+
 let languageCode = I18n.locale.substr(0, 2)
 
 // All other translations for the app goes to the respective language file:
