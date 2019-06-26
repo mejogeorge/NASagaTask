@@ -3,9 +3,10 @@ import HomeList from '../Containers/HomeList'
 import LaunchScreen from '../Containers/LaunchScreen'
 import styles from './Styles/NavigationStyles'
 import LandingView from '../Containers/LandingView'
-import LandingTenants from '../Containers/LandingView/LandingTenants'
-import LandingOwners from '../Containers/LandingView/LandingOwners'
-import InfoCard from '@Components/InfoCard'
+// import LandingTenants from '../Containers/LandingView/LandingTenants'
+// import LandingOwners from '../Containers/LandingView/LandingOwners'
+// import InfoCard from '@Components/InfoCard'
+import InfoCardView from '../Containers/InfoCardView'
 
 const dataSourceOwner = [
   {
@@ -64,11 +65,11 @@ const PrimaryNav = createStackNavigator(
       screen: LandingView
     },
     LandingTenants: {
-      screen: LandingTenants,
+      screen: InfoCardView,
       params: { dataSource: dataSourceTenant }
     },
     LandingOwners: {
-      screen: InfoCard,
+      screen: InfoCardView,
       params: { dataSource: dataSourceOwner }
     }
   },

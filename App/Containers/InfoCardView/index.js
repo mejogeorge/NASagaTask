@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, FlatList } from 'react-native'
-import { styles } from './Styles/InfoCardStyles'
-import LandingViewSwipeComponent from './LandingViewSwipeComponent'
+import { styles } from './styles'
+import InfoCardSwipeComponent from '@Components/InfoCardSwipeComponent'
+// import InfoCardSwipeComponent from '../../Components/InfoCardSwipeComponent'
 import _ from 'lodash'
 
 const Dot = props => {
@@ -25,7 +26,7 @@ export default class InfoCard extends Component {
     header: null
   }
 
-  renderItems = item => <LandingViewSwipeComponent data={item.item} />
+  renderItems = item => <InfoCardSwipeComponent data={item.item} />
 
   scrollToNext = () => {
     const dataSource = _.get(
