@@ -11,5 +11,21 @@ export const styles = StyleSheet.create({
     textAlign: 'left',
     fontSize: 16,
     color: '#a7a7a7'
+  },
+  contryCode: {
+    backgroundColor: 'rgb(246 , 246, 246)',
+    marginRight: 12,
+    height: 54,
+    width: 84,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  contryCodeText: {
+    color: '#262626',
+    fontSize: 16
+  },
+  conatiner: {
+    flexDirection: 'row',
+    width: '100%'
   }
 })

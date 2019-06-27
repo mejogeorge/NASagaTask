@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import { styles } from './styles'
 import I18n from 'react-native-i18n'
-import MobileDetailsView from '@Components/MobileDetailsView'
-import OTPDetailsView from '@Components/OTPDetailsView'
-import SignUpDetailsView from '@Components/SignUpDetailsView'
+import MobileDetailsView from './MobileDetailsView'
+import OTPDetailsView from './OTPDetailsView'
+import SignUpDetailsView from './SignUpDetailsView'
 
 let radioListData = [
   { id: 0, active: true, text: I18n.t('loginOrSignUpView.Owner') },
@@ -26,9 +26,7 @@ export default class RoundButton extends Component {
   }
 
   radioButtonTapped = id => {
-    console.tron.log('radio 3rd Stage', id)
     radioListData = radioListData.map((data, index) => {
-      console.tron.log('radio button id  & index', id, index)
       if (index === id) {
         data.active = true
       } else {
