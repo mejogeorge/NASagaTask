@@ -2,10 +2,11 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   loginOrSignUpButton: {
-    flex: 1,
+    // flex: 1,
     paddingLeft: 20,
     paddingRight: 20,
     borderRadius: 10,
+    height: 54,
     width: '100%',
     backgroundColor: 'rgb(53, 86, 202)',
     justifyContent: 'center',

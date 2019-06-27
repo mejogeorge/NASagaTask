@@ -4,6 +4,7 @@ import LaunchScreen from '../Containers/LaunchScreen'
 import styles from './Styles/NavigationStyles'
 import LandingView from '../Containers/LandingView'
 import InfoCardView from '../Containers/InfoCardView'
+import LoginView from '../Containers/LoginView'
 import I18n from 'react-native-i18n'
 
 const dataSourceTenant = [
@@ -59,6 +60,9 @@ const PrimaryNav = createStackNavigator(
     LandingOwners: {
       screen: InfoCardView,
       params: { dataSource: dataSourceOwner }
+    },
+    LoginOrSignup: {
+      screen: LoginView
     }
   },
   {

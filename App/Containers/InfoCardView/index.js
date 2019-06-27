@@ -36,7 +36,6 @@ export default class InfoCard extends Component {
       this.props.dataSource
     )
     if (this.listRef && this.listRef.scrollToIndex) {
-      console.tron.log('worked')
       this.listRef.scrollToIndex({
         animated: true,
         index: this.state.currentIndex + 1
@@ -48,7 +47,6 @@ export default class InfoCard extends Component {
             : this.state.currentIndex
       })
     } else {
-      console.tron.log('not worked', this.flatRef)
     }
   }
 
@@ -63,7 +61,6 @@ export default class InfoCard extends Component {
       'navigation.state.params.dataSource',
       this.props.dataSource
     )
-    console.tron.log('DS::', dataSource)
     return (
       <View style={styles.container}>
         <View style={styles.secondaryView}>
@@ -96,7 +93,7 @@ export default class InfoCard extends Component {
                 <BarButton
                   buttonText='LOGIN or SIGNUP'
                   buttonAction={() => {
-                    this.props.navigation.navigate('LandingView')
+                    this.props.navigation.navigate('LoginOrSignup')
                   }}
                 />
               ) : (

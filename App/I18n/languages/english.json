@@ -20,6 +20,20 @@
       "doubtfulAboutOwner": "Doubtful about your future owner?",
       "doubtfulAboutOwnerAnswer": "See what their past tenants are saying about them!"
    },
+   "loginOrSignUpView": {
+      "mobileNumber": "Mobile number",
+      "agreeAndContinue": "By continuing, you agree to our terms & conditions",
+      "autoVarifyMobileNumber": "Auto verifying your mobile number…",
+      "fullNAme": "Full name",
+      "whoAreYou": "Who are you?",
+      "Owner": "Owner",
+      "tenanat": "Tenant",
+      "bothOwnerAndTenant": "Both owner & tenant",
+      "continue": "CONTINUE",
+      "otp": "OTP",
+      "verify": "VERIFY"
+   },
+   "signUp": "SIGNUP",
    "loginOrSignup": "LOGIN or SIGNUP",
    "signIn": "Sign In",
    "logOut": "Log Out",
@@ -44,5 +58,5 @@
    "themeSettings": "Theme Settings",
    "deviceDetails": "Device Details",
    "noItems": "No Items",
-   "search": "Search"
+   "search": "Search",
 }

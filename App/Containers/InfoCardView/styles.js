@@ -1,5 +1,4 @@
 import { StyleSheet, Dimensions } from 'react-native'
-// import { borderRadius } from 'polished'
 const wholeWidth = Dimensions.get('window').width
 const wholeHeight = Dimensions.get('window').height
 
@@ -16,7 +15,7 @@ export const styles = StyleSheet.create({
   },
   secondaryView: {
     backgroundColor: 'white',
-    alignItems: 'center', // 'rgb(22, 29, 50)'
+    alignItems: 'center',
     paddingTop: 49,
     paddingBottom: 24,
     borderRadius: 10,
@@ -82,4 +81,3 @@ export const styles = StyleSheet.create({
     backgroundColor: '#4265ea'
   }
 })
-// 22,29,50ß
