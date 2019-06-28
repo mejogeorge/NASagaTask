@@ -15,7 +15,10 @@ let radioListData = [
     text: I18n.t('loginOrSignUpView.bothOwnerAndTenant')
   }
 ]
-
+let signupObject = {
+  phoneNumber: '',
+  fullName: ''
+}
 export default class RoundButton extends Component {
   static navigationOptions = {
     header: null
@@ -36,13 +39,21 @@ export default class RoundButton extends Component {
     })
   }
 
+  goToOTPDetailsView = phoneNumber => {
+    console.tron.log('phoneNumber from loginView', phoneNumber)
+    signupObject.phoneNumber = phoneNumber
+    this.setState({ currentView: 'OPTView' })
+  }
+
   render () {
     return (
       <View style={styles.container}>
         <View style={styles.secondaryView}>
           {this.state.currentView === 'MobileView' ? (
             <MobileDetailsView
-              onButtonClick={() => this.setState({ currentView: 'OPTView' })}
+              onButtonClick={this.goToOTPDetailsView}
+              validate={this.isValidPHoneNUmber}
+              shoulAutoFocus
             />
           ) : null}
 

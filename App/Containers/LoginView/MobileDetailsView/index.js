@@ -5,8 +5,21 @@ import { View } from 'react-native-animatable'
 import InputBox from '@Components/InputBox'
 import BarButton from '@Components/BarButton'
 import I18n from 'react-native-i18n'
+import { validatePhoneNumber } from '../../../Helper/validationHelper'
+let phoneNumber = ''
+export default class MobileDetailsView extends Component {
+  validateAndProceed = () => {
+    const isValid = validatePhoneNumber(phoneNumber)
+    console.tron.log('validateAndProceed called', isValid)
 
-export default class SignUpDetailsView extends Component {
+    if (isValid.success) {
+      this.props.onButtonClick(phoneNumber)
+      console.tron.log('PhoneNumber Validation succes ', isValid.errorMessage)
+    } else {
+      console.tron.log('PhoneNumber Validation Failed ', isValid.errorMessage)
+    }
+  }
+
   render () {
     return (
       <View>
@@ -14,12 +27,20 @@ export default class SignUpDetailsView extends Component {
           <View style={styles.contryCode}>
             <Text style={styles.contryCodeText}>+91 ▼</Text>
           </View>
-          <InputBox placeHoldertext={I18n.t('loginOrSignUpView.mobileNumber')} onChange={() => {}} />
+          <InputBox
+            placeHoldertext={I18n.t('loginOrSignUpView.mobileNumber')}
+            onChange={text => {
+              phoneNumber = text
+            }}
+            textLimit={10}
+            autoFocus={this.props.shoulAutoFocus}
+            keyboardType='number-pad'
+          />
         </View>
         <BarButton
           buttonText={I18n.t('loginOrSignUpView.continue')}
           radius={{ borderRadius: 4 }}
-          buttonAction={this.props.onButtonClick}
+          buttonAction={() => this.validateAndProceed()}
         />
         <Text style={styles.mobileViewText}>
           {I18n.t('loginOrSignUpView.agreeAndContinue')}
@@ -27,4 +48,5 @@ export default class SignUpDetailsView extends Component {
       </View>
     )
   }
+  s
 }
