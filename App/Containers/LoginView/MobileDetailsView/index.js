@@ -9,7 +9,7 @@ import { validatePhoneNumber } from '../../../Helper/validationHelper'
 let phoneNumber = ''
 export default class MobileDetailsView extends Component {
   validateAndProceed = () => {
-    const isValid = validatePhoneNumber(phoneNumber)
+    const isValid = validatePhoneNumber(phoneNumber, 'PHONE')
     console.tron.log('validateAndProceed called', isValid)
 
     if (isValid.success) {
@@ -33,7 +33,7 @@ export default class MobileDetailsView extends Component {
               phoneNumber = text
             }}
             textLimit={10}
-            autoFocus={this.props.shoulAutoFocus}
+            autoFocus
             keyboardType='number-pad'
           />
         </View>

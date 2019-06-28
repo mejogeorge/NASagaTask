@@ -45,6 +45,12 @@ export default class RoundButton extends Component {
     this.setState({ currentView: 'OPTView' })
   }
 
+  goToSignUpView = phoneNumber => {
+    console.tron.log('phoneNumber from loginView', phoneNumber)
+    signupObject.phoneNumber = phoneNumber
+    this.setState({ currentView: 'SignUpView' })
+  }
+
   render () {
     return (
       <View style={styles.container}>
@@ -59,7 +65,7 @@ export default class RoundButton extends Component {
 
           {this.state.currentView === 'OPTView' ? (
             <OTPDetailsView
-              onButtonClick={() => this.setState({ currentView: 'SignUpView' })}
+              onButtonClick={this.goToSignUpView}
             />
           ) : null}
           {this.state.currentView === 'SignUpView' ? (
