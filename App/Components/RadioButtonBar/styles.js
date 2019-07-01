@@ -5,9 +5,6 @@ export const styles = StyleSheet.create({
     paddingLeft: 4,
     paddingTop: 10,
     paddingBottom: 13,
-    height: 52,
-    width: '100%',
-    backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'flex-start'
   },

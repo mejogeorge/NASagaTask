@@ -6,7 +6,7 @@ import MobileDetailsView from './MobileDetailsView'
 import OTPDetailsView from './OTPDetailsView'
 import SignUpDetailsView from './SignUpDetailsView'
 
-let radioListData = [
+const radioListData = [
   { id: 0, active: true, text: I18n.t('loginOrSignUpView.Owner') },
   { id: 1, active: false, text: I18n.t('loginOrSignUpView.tenanat') },
   {
@@ -15,11 +15,11 @@ let radioListData = [
     text: I18n.t('loginOrSignUpView.bothOwnerAndTenant')
   }
 ]
-let signupObject = {
+const signupObject = {
   phoneNumber: '',
   fullName: ''
 }
-export default class RoundButton extends Component {
+export default class LoginView extends Component {
   static navigationOptions = {
     header: null
   }
@@ -29,14 +29,15 @@ export default class RoundButton extends Component {
   }
 
   radioButtonTapped = id => {
-    radioListData = radioListData.map((data, index) => {
-      if (index === id) {
-        data.active = true
-      } else {
-        data.active = false
-      }
-      return data
-    })
+    this.setState({ activeId: id })
+    // radioListData = radioListData.map((data, index) => {
+    //   if (index === id) {
+    //     data.active = true
+    //   } else {
+    //     data.active = false
+    //   }
+    //   return data
+    // })
   }
 
   goToOTPDetailsView = phoneNumber => {
@@ -59,14 +60,11 @@ export default class RoundButton extends Component {
             <MobileDetailsView
               onButtonClick={this.goToOTPDetailsView}
               validate={this.isValidPHoneNUmber}
-              shoulAutoFocus
             />
           ) : null}
 
           {this.state.currentView === 'OPTView' ? (
-            <OTPDetailsView
-              onButtonClick={this.goToSignUpView}
-            />
+            <OTPDetailsView onButtonClick={this.goToSignUpView} />
           ) : null}
           {this.state.currentView === 'SignUpView' ? (
             <SignUpDetailsView

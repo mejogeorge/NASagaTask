@@ -22,7 +22,8 @@
    },
    "loginOrSignUpView": {
       "mobileNumber": "Mobile number",
-      "agreeAndContinue": "By continuing, you agree to our terms & conditions",
+      "agreeAndContinue": "By continuing, you agree to our ",
+      "termsAndCondition": "terms & conditions",
       "autoVarifyMobileNumber": "Auto verifying your mobile number…",
       "fullNAme": "Full name",
       "whoAreYou": "Who are you?",
@@ -31,7 +32,11 @@
       "bothOwnerAndTenant": "Both owner & tenant",
       "continue": "CONTINUE",
       "otp": "OTP",
-      "verify": "VERIFY"
+      "verify": "VERIFY",
+      "pleaseEnterAnOTP": "Please enter a valid OTP",
+      "pleaseEnter6DigitOTP": "Please enter a 6 digit OTP",
+      "pleaseEnterANumber": "Please enter a valid number",
+      "pleaseEnter10DigitNumber": "Please enter a 10 digit number",
    },
    "signUp": "SIGNUP",
    "loginOrSignup": "LOGIN or SIGNUP",

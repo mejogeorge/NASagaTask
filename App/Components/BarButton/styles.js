@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     // flex: 1,
     paddingLeft: 20,
     paddingRight: 20,
-    borderRadius: 10,
+    borderRadius: 4,
     height: 54,
     width: '100%',
     backgroundColor: 'rgb(53, 86, 202)',

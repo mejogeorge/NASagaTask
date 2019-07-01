@@ -1,26 +1,24 @@
 import React, { Component } from 'react'
-import { Text, Keyboard } from 'react-native'
+import { Text, Alert } from 'react-native'
 import { styles } from './styles'
 import { View } from 'react-native-animatable'
 import InputBox from '@Components/InputBox'
 import BarButton from '@Components/BarButton'
 import I18n from 'react-native-i18n'
-import { validatePhoneNumber } from '../../../Helper/validationHelper'
+import { validateNumber } from '@Lib/validationHelper'
 let otp = ''
 export default class OTPDetailsView extends Component {
   validateAndProceed = () => {
-    const isValid = validatePhoneNumber(otp, 'OTP')
-    console.tron.log('validateAndProceed called', isValid)
-    if (isValid.success) {
+    const validation = validateNumber(otp, 6)
+    if (validation.success) {
       this.props.onButtonClick(otp)
-      console.tron.log('otp Validation succes ', isValid.errorMessage)
+      console.tron.log('otp Validation succes ', validation.errorMessage)
     } else {
-      console.tron.log('otp Validation Failed ', isValid.errorMessage)
+      console.tron.log('otp Validation Failed ', validation.errorMessage)
+      Alert.alert('Wrong OTP', validation.errorMessage)
     }
   }
-  componentDidMount () {
-    Keyboard.dismiss()
-  }
+
   render () {
     return (
       <View>
@@ -41,7 +39,6 @@ export default class OTPDetailsView extends Component {
         <View style={styles.VerifyButtonView}>
           <BarButton
             buttonText={I18n.t('loginOrSignUpView.verify')}
-            radius={{ borderRadius: 4 }}
             buttonAction={this.validateAndProceed}
           />
         </View>

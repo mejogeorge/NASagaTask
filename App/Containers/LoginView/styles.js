@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     backgroundColor: 'rgb(16 , 23, 45)',
     paddingTop: 44,
-    paddingBottom: 207,
     paddingLeft: 12,
     paddingRight: 12
   },
