@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 import { styles } from './styles'
-import { View } from 'react-native-animatable'
 import InputBox from '@Components/InputBox'
 import BarButton from '@Components/BarButton'
 import RadioButtonList from '@Components/RadioButtonList'

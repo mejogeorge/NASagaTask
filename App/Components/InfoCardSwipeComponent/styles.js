@@ -22,30 +22,30 @@ let width = Dimensions.get('window').width
 export const styles = StyleSheet.create({
   container: {
     marginHorizontal: 50,
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   flatList: {
     flex: 1
   },
   image: {
     aspectRatio: 237 / 168,
-    width: width - 124, //
+    width: width - 124,
     backgroundColor: 'grey'
   },
   primaryText: {
     fontSize: 16,
     color: 'rgb(98, 98, 98)',
-    marginTop: 71,
     marginBottom: 4,
     width: 237,
-    textAlign: 'center'
+    textAlign: 'center',
+    paddingTop: 10
   },
   secondaryText: {
     fontSize: 16,
     color: 'rgb(28, 28, 28)',
     width: 237,
-    height: 52,
-    textAlign: 'center'
+    textAlign: 'center',
+    marginBottom: 38
   }
 })
-// 22,29,50

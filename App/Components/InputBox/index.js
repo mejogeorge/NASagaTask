@@ -12,6 +12,7 @@ export default class InputBox extends Component {
         onChangeText={text => this.props.onChange(text)}
         maxLength={textLimit || null}
         autoFocus={this.props.autoFocus}
+        placeholderTextColor='#a7a7a7'
         keyboardType={this.props.keyboardType}
       />
     )

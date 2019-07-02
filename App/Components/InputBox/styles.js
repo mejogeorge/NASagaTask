@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     backgroundColor: 'rgb(246, 246, 246)',
     textAlign: 'left',
     fontSize: 16,
-    color: '#a7a7a7'
+    color: '#262626'
   },
   contryCode: {
     backgroundColor: 'rgb(246 , 246, 246)',

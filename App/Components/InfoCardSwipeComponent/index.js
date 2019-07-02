@@ -15,10 +15,12 @@ export default class InfoCradSwipeComponent extends Component {
           }}
           style={styles.image}
         />
-        <Text style={styles.primaryText}>{this.props.data.primaryText}</Text>
-        <Text style={styles.secondaryText}>
-          {this.props.data.secondaryText}!
-        </Text>
+        <View>
+          <Text style={styles.primaryText}>{this.props.data.primaryText}</Text>
+          <Text style={styles.secondaryText}>
+            {this.props.data.secondaryText}!
+          </Text>
+        </View>
       </View>
     )
   }

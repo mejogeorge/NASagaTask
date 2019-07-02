@@ -7,11 +7,11 @@ export const styles = StyleSheet.create({
     backgroundColor: 'rgb(53, 86, 202)',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 24,
-    marginBottom: 6
+    borderRadius: 24
   },
   buttonText: {
     color: 'white',
-    fontSize: 20
+    fontSize: 20,
+    alignSelf: 'center'
   }
 })

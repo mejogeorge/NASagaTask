@@ -22,43 +22,17 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   flatList: {
-    flex: 1,
-    maxHeight: 400
+    flex: 1
   },
-  roundButton: {
-    height: 48,
-    width: 48,
-    backgroundColor: 'rgb(53, 86, 202)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 24,
-    marginBottom: 6
-  },
+
   buttonText: {
     color: 'white',
     fontSize: 20
   },
-  loginOrSignUpButton: {
-    flex: 1,
-    paddingLeft: 20,
-    paddingRight: 20,
-    borderRadius: 10,
-    width: '100%',
-    backgroundColor: 'rgb(53, 86, 202)',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  loginButtonText: {
-    textAlign: 'center',
-    fontSize: 14,
-    color: 'white'
-  },
   buttonsView: {
     flex: 1,
     width: wholeWidth - 112,
-    marginTop: 39,
     maxHeight: (52 / 640) * wholeHeight,
-    marginBottom: 24,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center'
@@ -67,7 +41,7 @@ export const styles = StyleSheet.create({
     height: 10,
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 38,
+    // marginTop: 38,
     marginBottom: 16
   },
   dot: {

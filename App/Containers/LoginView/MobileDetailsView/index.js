@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Text, Alert} from 'react-native'
+import { Text, Alert, View } from 'react-native'
 import { styles } from './styles'
-import { View } from 'react-native-animatable'
 import InputBox from '@Components/InputBox'
 import BarButton from '@Components/BarButton'
 import I18n from 'react-native-i18n'
@@ -14,9 +13,15 @@ export default class MobileDetailsView extends Component {
 
     if (validation.success) {
       this.props.onButtonClick(this.phoneNumber)
-      console.tron.log('PhoneNumber Validation succes ', validation.errorMessage)
+      console.tron.log(
+        'PhoneNumber Validation succes ',
+        validation.errorMessage
+      )
     } else {
-      console.tron.log('PhoneNumber Validation Failed ', validation.errorMessage)
+      console.tron.log(
+        'PhoneNumber Validation Failed ',
+        validation.errorMessage
+      )
       Alert.alert('Invalid Mobile Number', validation.errorMessage)
     }
   }
@@ -45,7 +50,9 @@ export default class MobileDetailsView extends Component {
         />
         <Text style={styles.mobileViewText}>
           {I18n.t('loginOrSignUpView.agreeAndContinue')}
-          <Text style={styles.termAndConditionText}>{I18n.t('loginOrSignUpView.termsAndCondition')}</Text>
+          <Text style={styles.termAndConditionText}>
+            {I18n.t('loginOrSignUpView.termsAndCondition')}
+          </Text>
         </Text>
       </View>
     )
