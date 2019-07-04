@@ -26,7 +26,6 @@ export default class InfoCard extends Component {
   static navigationOptions = {
     header: null
   }
-
   renderItems = item => <InfoCardSwipeComponent data={item.item} />
 
   scrollToNext = () => {
@@ -56,6 +55,7 @@ export default class InfoCard extends Component {
     })
   }
   render () {
+    console.tron.log('render fnc called')
     const dataSource = _.get(
       this.props,
       'navigation.state.params.dataSource',
@@ -91,7 +91,7 @@ export default class InfoCard extends Component {
             <View style={styles.buttonsView}>
               {this.state.currentIndex === dataSource.length - 1 ? (
                 <BarButton
-                  buttonText='LOGIN or SIGNUP'
+                  buttonText={dataSource[this.state.currentIndex].buttonText} // 'LOGIN or SIGNUP'
                   buttonAction={() => {
                     this.props.navigation.navigate('LoginOrSignup')
                   }}
@@ -106,3 +106,4 @@ export default class InfoCard extends Component {
     )
   }
 }
+//✓ →

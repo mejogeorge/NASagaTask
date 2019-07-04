@@ -5,6 +5,7 @@ import styles from './Styles/NavigationStyles'
 import LandingView from '../Containers/LandingView'
 import InfoCardView from '../Containers/InfoCardView'
 import LoginView from '../Containers/LoginView'
+import WelcomeViewThree from '../Containers/TenantCustomWelcomeScreen/WelcomeViewThree'
 import I18n from 'react-native-i18n'
 
 const dataSourceTenant = [
@@ -29,14 +30,36 @@ const dataSourceTenant = [
 
 const dataSourceOwner = [
   {
+    image:
+      'https://image.freepik.com/free-photo/abstract-luxury-clear-yellow-wall-well-use-as-backdrop-background-layout_1258-207.jpg',
     primaryText: I18n.t('forOwners.goodTenant'),
     secondaryText: I18n.t('forOwners.goodTenantAnswer')
   },
   {
+    image:
+      'https://image.freepik.com/free-photo/abstract-luxury-clear-yellow-wall-well-use-as-backdrop-background-layout_1258-207.jpg',
     primaryText: I18n.t('forOwners.doubtfulAboutOwner'),
     secondaryText: I18n.t('forOwners.doubtfulAboutOwnerAnswer'),
     buttonText: I18n.t('loginOrSignup')
   }
+]
+const dataSourceTenantCustom = [
+  {
+    id: 1,
+    image:
+      'https://image.freepik.com/free-photo/abstract-luxury-clear-yellow-wall-well-use-as-backdrop-background-layout_1258-207.jpg',
+    secondaryText:
+      'Your prospective owners are searching for you here. Build your rentscore by getting ratings from your previous owners.',
+    buttonText: 'GET STARTED'
+  },
+  {
+    id: 2,
+    title: 'What is RentScore?',
+    primaryText:
+      'Rentscore is your tenancy history i.e. your punctuality in paying rent, how well you have kept their house etc.',
+    buttonText: 'GET STARTED'
+  },
+  { id: 3, view: WelcomeViewThree, buttonText: 'GET STARTED' }
 ]
 
 // Manifest of possible screens
@@ -63,6 +86,10 @@ const PrimaryNav = createStackNavigator(
     },
     LoginOrSignup: {
       screen: LoginView
+    },
+    TenantCustomWelcome: {
+      screen: InfoCardView,
+      params: { dataSource: dataSourceTenantCustom }
     }
   },
   {
